@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "oxypuro"
+version = "0.1.0"
+description = "Oxypuro air-quality proof of concept: local excess for sales, impact and data trust"
+requires-python = ">=3.12,<3.13"
+authors = [{ name = "Massimo Prencipe" }]
+dependencies = [
+    "boto3[crt]>=1.35",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+analytics = [
+    "duckdb>=1.1",
+    "pandas>=2.2",
+    "pyarrow>=17",
+    "numpy>=2.0",
+    "scikit-learn>=1.5",
+    "geopandas>=1.0",
+    "matplotlib>=3.9",
+]
+app = [
+    "streamlit>=1.39",
+    "pydeck>=0.9",
+    "plotly>=5.24",
+]
+dev = [
+    "ruff>=0.7",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/oxypuro"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["presentation"]
+src = ["src", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

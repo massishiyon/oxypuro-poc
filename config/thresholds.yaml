@@ -1,0 +1,39 @@
+# Sources: Directive (EU) 2024/2881 Annex I (limits from 2030); WHO Global Air Quality Guidelines 2021.
+eu_2030:
+  daily_limit:
+    pm25: 25
+    pm10: 45
+    no2: 50
+    so2: 50
+    co: 4000
+  annual_limit:
+    pm25: 10
+    pm10: 20
+    no2: 20
+    so2: 20
+  max_daily_exceedances_per_year: 18
+
+who_2021:
+  daily_guideline:
+    pm25: 15
+    pm10: 45
+    no2: 25
+    so2: 40
+    co: 4000
+  annual_guideline:
+    pm25: 5
+    pm10: 15
+    no2: 10
+
+data_capture:
+  min_hours_for_daily_mean: 18
+
+physical_limits:
+  pm25: 1000
+  pm10: 2000
+  no2: 2000
+  o3: 1000
+  so2: 2000
+  co: 100000
+
+negative_tolerance: -2

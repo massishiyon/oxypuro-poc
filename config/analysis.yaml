@@ -1,0 +1,63 @@
+qc:
+  neighbour_radius_km: 30
+  neighbour_fallback_k: 3
+  neighbour_fallback_max_km: 60
+  flatline_min_hours: 6
+  spike_window_hours: 24
+  spike_min_points: 12
+  spike_robust_z: 6
+  spike_abs_floor:
+    pm25: 20
+    pm10: 30
+    no2: 40
+    o3: 40
+    so2: 20
+    co: 500
+  mad_floor:
+    pm25: 2
+    pm10: 3
+    no2: 4
+    o3: 4
+    so2: 2
+    co: 50
+  neighbour_agree_z: 3
+  neighbour_agree_share: 0.5
+  pm_ratio_tolerance_rel: 0.10
+  pm_ratio_tolerance_abs: 2
+  fault_injection:
+    random_seed: 42
+    n_spikes: 50
+    n_flatlines: 50
+    n_negatives: 50
+    n_unit_glitches: 50
+    n_pm_ratio: 50
+    spike_factor: 5
+    flatline_hours: 8
+    negative_value: -10
+    unit_glitch_factor: 1000
+    pm_ratio_factor: 1.5
+    min_history_hours: 24
+
+hotspots:
+  min_valid_day_share: 0.5
+  weights: {severity: 1, exposure: 1}
+  top_n: 10
+  exposure_radius_m: 1000
+
+impact:
+  parameter: pm25
+  min_hourly_completeness: 0.8
+  test_days: 7
+  min_control_distance_km: 2
+  n_controls: 5
+  detectable_quantile: 0.9
+
+llm:
+  default_model_id: openai.gpt-oss-120b-1:0
+  candidate_model_ids:
+    - openai.gpt-oss-120b-1:0
+    - qwen.qwen3-32b-v1:0
+    - mistral.magistral-small-2509
+    - google.gemma-3-27b-it
+  temperature: 0.2
+  max_tokens_brief: 3000
